@@ -3,6 +3,8 @@ import './profile.css';
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { AiOutlineLeft, AiOutlineEllipsis } from 'react-icons/ai';
+import image1 from '../images/clocktower.jpg'
+import image2 from '../images/gorge.jpg'
 
 
 function Profile() {
@@ -39,8 +41,20 @@ function Profile() {
     					<li><span className="profile-stat-count">188</span> followers</li>
     					<li><span className="profile-stat-count">206</span> following</li>
     				</ul>
+            <div className="buttonWrapper1">
+              <button className="profileButton1">Follow</button>
+            </div>
+            <div className="buttonWrapper2">
+              <button className="profileButton2">Message</button>
+            </div>
 
-    			</div>
+            <div className="bigView">
+              <img src={image1} />
+              <img src={image2} />
+            </div>
+    		  </div>
+
+
 
     		</div>
 

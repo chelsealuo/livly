@@ -17,12 +17,18 @@ import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-rout
 function App() {
   return (
     <>
+    <div className="listButton">
+      <button>Show List</button>
+    </div>
+
     <Link to='/profile' className='nav-Links'>
       <p>Profile testing</p>
     </Link>
 
     <Header />
     <Explore />
+
+
     </>
 
   );

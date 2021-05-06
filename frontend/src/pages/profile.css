@@ -1,3 +1,14 @@
+.bigView {
+  padding-top:50px;
+  margin-top:50px;
+}
+
+.bigView img{
+  border-radius: 3%;
+  width:130px;
+  margin-left:20px;
+}
+
 .profileTop {
   display:flex;
   flex-direction:row;
@@ -6,6 +17,35 @@
   padding-bottom:7px;
   padding-left:2px;
   padding-right:2px;
+}
+
+.profileButton1 {
+  font-size: 14px;
+  padding:10px 32px;
+  border-radius:4px;
+  background-color: #434D77;
+  color: white;
+  border:none;
+}
+
+.profileButton2 {
+  font-size: 14px;
+  padding:10px 30px;
+  border-radius:4px;
+  background-color: white;
+  color: black;
+  /* border: 2px solid purple; */
+  border: 1px solid rgba(67, 77, 119, 1);
+}
+
+.buttonWrapper1 {
+  float:left;
+  margin-left:50px;
+}
+
+.buttonWrapper2 {
+  float:left;
+  margin-left:20px;
 }
 
 .profileTop h4{
