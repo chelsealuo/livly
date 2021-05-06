@@ -44,25 +44,20 @@ module.exports.profile = async (event) => {
   }
   
   if (event.path === '/userProfiles' && event.httpMethod === 'GET') {
+    const userProfiles = await getAllProfiles()
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify([
-        {
-          bio: "I live in a pineapple under the sea",
-          category: "Food",
-          emailID: "sachiangle@gmail.com",
-          pictureURL: "https://static.wikia.nocookie.net/spongebob/images/d/d7/SpongeBob_stock_art.png/revision/latest?cb=20190921125147",
-          subcategory: "seafoood"
-        },
-        {
-          bio: "I will find the Avatar to restore my Honor",
-          category: "Bar",
-          emailID: "cl773@cornell.edu",
-          pictureURL: "https://pbs.twimg.com/profile_images/1249128418844631040/MJiiRdSu_400x400.jpg",
-          subcategory: "revenge"
-        }
-      ]),
+      body: JSON.stringify(userProfiles)
+    }
+  }
+
+  if (event.path === '/aProfile' && event.httpMethod === 'GET') {
+    const userProfile = await getProfile('sachiangle@gmail.com')
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify(userProfile)
     }
   }
 };
@@ -77,27 +72,40 @@ module.exports.locations = async (event) => {
   }
 
   if (event.path === '/locations' && event.httpMethod === 'GET') {
+    const locations = await getAllLocations()
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify([
-        {
-          category: "Bar",
-          emailID: "cl773@cornell.edu",
-          Latitude: "testLat2",
-          locID: "testLocId2",
-          locName: "The Fire Island",
-          Longitude: "testLong2"
-        },
-        {
-          category: "Food",
-          emailID: "sachiangle@gmail.com",
-          Latitude: "testLat",
-          locID: "testLocId",
-          locName: "Krabby Patty",
-          Longitude: "testLong"
-        }
-      ]),
+      body: JSON.stringify(locations)
     }
   }
 };
+
+function getAllProfiles () {
+  console.log("get all profiles")
+  return docClient.scan(
+    {
+      TableName: "LL_UserProfile"
+    }
+  ).promise().then((response) => response.Items);
+}
+
+function getProfile (emailID) {
+  console.log("get profile by ID")
+  return docClient.query(
+    {
+      TableName: "LL_UserProfile",
+      KeyConditionExpression: "emailID = :emailID",
+      ExpressionAttributeValues: {":emailID": emailID}
+    }
+  ).promise().then((response) => response.Items);
+}
+
+function getAllLocations () {
+  console.log("get all locations")
+  return docClient.scan(
+    {
+      TableName: "LL_Locations"
+    }
+  ).promise().then((response) => response.Items);
+}
