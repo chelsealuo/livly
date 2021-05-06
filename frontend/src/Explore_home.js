@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
 
 import MainHome from "./home";
 import ExploreHome from "./Explore_home.js";
@@ -17,14 +15,8 @@ import Home from "./pages/home.js";
 function App() {
   return (
     <>
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/explore" component={ExploreHome} />
-      </Switch>
-      <Navbar />
-    </Router>
-
+    <Header />
+    <Explore />
     </>
 
   );
