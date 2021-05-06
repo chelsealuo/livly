@@ -19,6 +19,7 @@
     margin: 0 auto;
     padding: 0 2rem;
     background-color: white;
+    height: 640px;
 }
 
 
@@ -46,7 +47,6 @@
 .profile-image {
     float: left;
     width: 100px;
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 2rem;
@@ -199,8 +199,16 @@
         display: none;
     }
 
-    .profile-image,
-    .profile-user-settings,
+    .profile-user-settings{
+        width: 190px;
+      }
+
+    .profile-user-settings h3 {
+      color: black;
+      font-size:12px;
+
+    }
+
     .profile-bio,
     .profile-stats {
         float: none;
@@ -215,6 +223,7 @@
 
     .profile-user-name {
         font-size: 1.1rem;
+        margin:0px;
     }
 
     .profile-edit-btn {
@@ -253,7 +262,7 @@
     }
 
     .profile-stats li {
-        font-size: 1.4rem;
+        font-size: 1rem;
         flex: 1;
         margin: 0;
     }
