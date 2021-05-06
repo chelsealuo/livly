@@ -10,6 +10,7 @@ import Navbar from "./pages/navbar.js";
 import Explore from "./pages/explore.js";
 import Header from "./pages/header.js";
 import Home from "./pages/home.js";
+import Profile from "./pages/profile.js";
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/explore" component={ExploreHome} />
+        <Route path="/profile" component={Profile} />
       </Switch>
       <Navbar />
     </Router>
