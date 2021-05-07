@@ -1,66 +1,94 @@
 import '@fontsource/roboto';
 import './profile.css';
-import React from 'react';
+import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import { AiOutlineLeft, AiOutlineEllipsis } from 'react-icons/ai';
 import image1 from '../images/clocktower.jpg'
 import image2 from '../images/gorge.jpg'
 
+export default class Profile extends Component {
+    state = {
+      curProfile: null
+  }
 
-function Profile() {
-  return (
-    <>
-    <div className="profileTop">
-      <AiOutlineLeft size={18} color={"white"}/>
-      <h4>Profile</h4>
-      <AiOutlineEllipsis size={23} color={"white"}/>
+  async componentDidMount() {
+    let backendUrl = "https://e6syfsey55.execute-api.us-east-1.amazonaws.com/dev"
 
-    </div>
+    if (window.location.href.includes('localhost')) {
+      backendUrl = "http://localhost:4000/dev/"
+    }
 
-    	<div className="container">
+    const curUrl = new URL(window.location.href)
+    let uuid = curUrl.searchParams.get('uuid'); 
 
-    		<div className="profile">
+    const response = await fetch(backendUrl + 'aProfile', {
+      headers: {
+        'fetch_uuid': uuid
+      }
+    }
+    )
 
-    			<div className="profile-image">
+    const curProfile = await response.json()
+    // save it to your components state so you can use it during render
+    this.setState({curProfile: curProfile})
+    console.log(curProfile)
+  }
 
-    				<img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="" />
+  render() {
+    console.log("hey")
+    console.log(this.state.curProfile)
+    if (this.state.curProfile != null) {
+    let profile = this.state.curProfile[0];
 
-    			</div>
+    return (
+      <>
+      <div className="profileTop">
+        <AiOutlineLeft size={18} color={"white"}/>
+        <h4>Profile</h4>
+        <AiOutlineEllipsis size={23} color={"white"}/>
+      </div>
+        <div className="container">
+            <div className="profile">
+              
+              <div className="profile-image">
 
-    			<div className="profile-user-settings">
+                <img src={this.state.curProfile[0].pictureURL} alt="" />
 
-    				<h1 className="profile-user-name">Angela Chen</h1>
-            <h3 >About me: A NYC local who likes to explore new spots in the city. </h3>
+              </div>
 
-    			</div>
+              <div className="profile-user-settings">
 
-    			<div className="profile-stats">
+                <h1 className="profile-user-name">{this.state.curProfile[0].name}</h1>
+                <h3 >{this.state.curProfile[0].bio}</h3>
+                <h3 >{this.state.curProfile[0].subcategpry}</h3>
+              </div>
 
-    				<ul>
-    					<li><span className="profile-stat-count">164</span> posts</li>
-    					<li><span className="profile-stat-count">188</span> followers</li>
-    					<li><span className="profile-stat-count">206</span> following</li>
-    				</ul>
-            <div className="buttonWrapper1">
-              <button className="profileButton1">Follow</button>
+              <div className="profile-stats">
+
+                <ul>
+                  <li><span className="profile-stat-count">164</span> posts</li>
+                  <li><span className="profile-stat-count">188</span> followers</li>
+                  <li><span className="profile-stat-count">206</span> following</li>
+                </ul>
+                <div className="buttonWrapper1">
+                  <button className="profileButton1">Follow</button>
+                </div>
+                <div className="buttonWrapper2">
+                  <button className="profileButton2">Message</button>
+                </div>
+
+                <div className="bigView">
+                  <img src={image1} />
+                  <img src={image2} />
+                </div>
+              </div>
             </div>
-            <div className="buttonWrapper2">
-              <button className="profileButton2">Message</button>
-            </div>
-
-            <div className="bigView">
-              <img src={image1} />
-              <img src={image2} />
-            </div>
-    		  </div>
-
-
-
-    		</div>
-
-    	</div>
-    </>
-  );
+        </div>
+      </>
+    )
+    }
+    return null
+  }
+  
 }
 
-export default Profile;

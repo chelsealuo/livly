@@ -53,7 +53,7 @@ module.exports.profile = async (event) => {
   }
 
   if (event.path === '/aProfile' && event.httpMethod === 'GET') {
-    const userProfile = await getProfile('sachiangle@gmail.com')
+    const userProfile = await getProfile(event.headers['fetch_uuid'])
     return {
       statusCode: 200,
       headers,
