@@ -39,20 +39,20 @@ export default class Persona extends Component {
           this.state.profiles && this.state.profiles.map(profile => {
             return (
                 <div className="containerpersona">
-        
+
                   <div className="profile">
-        
+
                     <div className="profile-image">
-        
+
                       <img src={profile.pictureURL} alt="" />
                       <div className="tempButton">
                       <Link to={"/profile?uuid=" + profile.emailID} className='nav-Links'><button>View Profile</button></Link>
                       </div>
-        
+
                     </div>
-        
+
                     <div className="profile-user-settings">
-        
+
                       <h1 className="profile-user-name">{profile.name}</h1>
                       <h3 >About me: {profile.bio}</h3>
                       <div className="tags">
@@ -60,12 +60,12 @@ export default class Persona extends Component {
                         <a class="button8">{profile.subcategory}</a>
                       </div>
                     </div>
-        
+
                   </div>
                 </div>
             )
           })
-        } 
+        }
         </div>
       </div>
     );
