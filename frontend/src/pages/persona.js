@@ -38,7 +38,6 @@ export default class Persona extends Component {
         {
           this.state.profiles && this.state.profiles.map(profile => {
             return (
-              
                 <div className="containerpersona">
         
                   <div className="profile">
@@ -47,7 +46,7 @@ export default class Persona extends Component {
         
                       <img src={profile.pictureURL} alt="" />
                       <div className="tempButton">
-                      <Link to='/profile?uuid=sachiangle@gmail.com' className='nav-Links'><button>View Profile</button></Link>
+                      <Link to={"/profile?uuid=" + profile.emailID} className='nav-Links'><button>View Profile</button></Link>
                       </div>
         
                     </div>
