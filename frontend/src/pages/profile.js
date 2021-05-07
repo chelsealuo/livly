@@ -82,7 +82,7 @@ export default class Profile extends Component {
                   <img src={image2} />
                 </div>
               </div>
-            </div>
+           </div>
         </div>
       </>
     )
