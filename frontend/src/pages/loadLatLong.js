@@ -4,8 +4,13 @@ export default class viewPins extends Component {
     state = {
         pins: null
     }
-  
-    async componentDidMount() {
+
+    // getPins(){
+    //   localStorage.setItem("pins", "hi")
+    //   return this.state.pins
+    // }
+
+    async getPins() {
       let backendUrl = "https://e6syfsey55.execute-api.us-east-1.amazonaws.com/dev/"
   
       if (window.location.href.includes('localhost')) {
@@ -17,7 +22,10 @@ export default class viewPins extends Component {
       const pins = await response.json()
       // save it to your components state so you can use it during render
       this.setState({pins: pins})
-      console.log(pins)
+      localStorage.setItem("pins", this.state.pins)
+      console.log("yellur")
     }
+
+    render() { return (null); }
   }
   

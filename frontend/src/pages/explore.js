@@ -1,6 +1,8 @@
 /* global google */
 import React from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import viewPins from './loadLatLong.js';
+// import { noop } from '@react-google-maps/api/dist/utils/noop';
 
 
 const containerStyle = {
@@ -13,6 +15,7 @@ const center = {
   lat: 42.443962,
   lng: -76.501884
 };
+
 
 function Explore() {
   const { isLoaded } = useJsApiLoader({
@@ -31,6 +34,13 @@ function Explore() {
   // const onUnmount = React.useCallback(function callback(map) {
   //   setMap(null)
   // }, [])
+
+  const vp = new viewPins()
+  vp.getPins().then((value)=>console.log(value))
+
+  // console.log(viewPins)
+  // const vp = new viewPins()
+  console.log(localStorage.getItem("pins"))
 
 
   return isLoaded ? (

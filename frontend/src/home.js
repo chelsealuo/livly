@@ -1,5 +1,5 @@
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
-import Searchbar from "./pages/searchbar.js";
+// import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
+// import Searchbar from "./pages/searchbar.js";
 
 
 function MainHome() {
