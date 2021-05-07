@@ -33,9 +33,9 @@ function Navbar() {
           </Link>
         </li>
         <li className='nav-item'>
-          <Link to='/aboutme' className='nav-Links'>
+          <Link to='/nearme' className='nav-Links'>
           <AiOutlineUser size={27}/>
-          <p>Me</p>
+          <p>Near Me</p>
           </Link>
         </li>
       </ul>
