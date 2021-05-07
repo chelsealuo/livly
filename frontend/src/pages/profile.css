@@ -108,7 +108,8 @@ a.button8: hover {
   margin: 0 auto;
   padding: 0 2rem;
   background-color: white;
-  height: 240px;
+  height: 200px;
+  margin-bottom:40px;
 }
 
 

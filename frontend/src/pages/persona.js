@@ -55,12 +55,9 @@ export default class Persona extends Component {
         
                       <h1 className="profile-user-name">{profile.name}</h1>
                       <h3 >About me: {profile.bio}</h3>
-                      <h4> I know best: {profile.category}</h4>
-                      <h4> {profile.subcategory}</h4>
                       <div className="tags">
-                        <a class="button8">Bars</a>
-                        <a class="button8">Restaurants</a>
-                        <a class="button8">Parks</a>
+                        <a class="button8">{profile.category}</a>
+                        <a class="button8">{profile.subcategory}</a>
                       </div>
                     </div>
         
