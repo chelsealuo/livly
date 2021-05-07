@@ -53,7 +53,7 @@ export default class Persona extends Component {
         
                     <div className="profile-user-settings">
         
-                      <h1 className="profile-user-name">{profile.name}</h1>
+                      <h1 className="profile-user-name">{profile.Name}</h1>
                       <h3 >About me: {profile.bio}</h3>
                       <div className="tags">
                         <a class="button8">{profile.category}</a>

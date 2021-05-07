@@ -58,7 +58,7 @@ export default class Profile extends Component {
 
               <div className="profile-user-settings">
 
-                <h1 className="profile-user-name">{this.state.curProfile[0].name}</h1>
+                <h1 className="profile-user-name">{this.state.curProfile[0].Name}</h1>
                 <h3 >{this.state.curProfile[0].bio}</h3>
                 <div className="tags">
                         <a class="button8">{profile.category}</a>
