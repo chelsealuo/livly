@@ -32,14 +32,19 @@ function Persona() {
       			<div className="profile-user-settings">
 
       				<h1 className="profile-user-name">Angela Chen</h1>
-              <h3 >About me: A NYC local who likes to explore new spots in the city. </h3>
-
-      			</div>
+              <h3 >About me: A student in Ithaca, enjoys going out for food and activities. </h3>
+              <div className="tags">
+                <a class="button8">Bars</a>
+                <a class="button8">Restaurants</a>
+                <a class="button8">Parks</a>
+              </div>
+      		</div>
 
           </div>
+
+        </div>
         </div>
       </div>
-    </div>
   );
 }
 

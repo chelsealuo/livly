@@ -30,7 +30,7 @@ function Profile() {
     			<div className="profile-user-settings">
 
     				<h1 className="profile-user-name">Angela Chen</h1>
-            <h3 >About me: A NYC local who likes to explore new spots in the city. </h3>
+            <h3 >About me: A student in Ithaca, enjoys going out for food and activities.</h3>
 
     			</div>
 
