@@ -11,6 +11,7 @@ import Explore from "./pages/explore.js";
 import Header from "./pages/header.js";
 import Home from "./pages/home.js";
 import Profile from "./pages/profile.js";
+import NearMe from "./pages/nearme.js";
 
 
 
@@ -22,6 +23,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/explore" component={ExploreHome} />
+        <Route path="/nearme" component={NearMe} />
         <Route path="/profile" component={Profile} />
       </Switch>
       <Navbar />
